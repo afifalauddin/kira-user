@@ -26,11 +26,11 @@ const { currentRoute, push, isReady } = useRouter();
 const currentPage = ref<number>(1);
 
 const changePage = (num: number) => {
-  currentPage.value = num;
+  currentPage.value = Math.floor(num);
   push({
     query: {
       ...currentRoute.value.query,
-      page: num,
+      page: Math.floor(num),
     },
   });
 };
@@ -51,10 +51,16 @@ onMounted(async () => {
   await isReady();
   if (currentRoute.value?.query.page) {
     try {
-      const page = Number(currentRoute.value.query.page);
+      const page = Math.floor(Number(currentRoute.value.query.page));
 
       if (page > 0 && !isNaN(page)) {
         currentPage.value = page;
+
+        changePage(page);
+      } else {
+        currentPage.value = 1;
+
+        changePage(currentPage.value);
       }
     } catch {
       currentPage.value = 1;
