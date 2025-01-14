@@ -70,7 +70,7 @@ module.exports = {
         "4xl": "2.5rem",
       },
       gridTemplateColumns: {
-        user: "1fr 3fr repeat(2,minmax(100px,1fr)) minmax(300px,2fr)",
+        user: "1fr 3fr repeat(2,minmax(50px,1fr)) minmax(50px,2fr)",
         info: "1fr 3fr ",
       },
       keyframes: {

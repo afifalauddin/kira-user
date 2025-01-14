@@ -8,10 +8,12 @@ const props = withDefaults(
   defineProps<PaginationNextProps & { class?: HTMLAttributes["class"] }>(),
   {
     asChild: true,
+    class: "",
   },
 );
 
 const delegatedProps = computed(() => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { class: _, ...delegated } = props;
 
   return delegated;
@@ -20,7 +22,10 @@ const delegatedProps = computed(() => {
 
 <template>
   <PaginationNext v-bind="delegatedProps">
-    <Button :class="cn('w-10 h-10 p-0', props.class)" variant="outline">
+    <Button
+      :class="cn('h-10 w-10 p-0', props.class)"
+      variant="outline"
+    >
       <slot> Next </slot>
     </Button>
   </PaginationNext>
