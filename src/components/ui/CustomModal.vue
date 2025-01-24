@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, ref } from "vue";
+import { ref } from "vue";
 import { onClickOutside } from "@vueuse/core";
 import { Button } from "@components/ui/button";
 import { CloseIcon } from "@components/ui/icon";
@@ -38,7 +38,7 @@ withDefaults(defineProps<Props>(), {
   >
     <div class="flex justify-between items-center h-full">
       <div
-        class="py-4 px-16 w-[42rem] h-fit m-auto bg-white rounded-md"
+        class="p-4 md:px-16 w-[24rem] md:w-[42rem] h-fit m-auto bg-white rounded-md overflow-hidden whitespace-nowrap"
         ref="target"
       >
         <div class="flex justify-between items-center">
